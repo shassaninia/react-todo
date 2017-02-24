@@ -3,7 +3,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 require('./css/index.css');
 
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, browserHistory,Link} from 'react-router';
 
 // Module requires
 var TodoItem = require('./todoItem');
@@ -47,6 +47,7 @@ var TodoComponent = React.createClass({
 
         return (
             <div id="todo-list">
+                <Link to={'/about'}>About</Link>
                 <p>The busiest people have the most leisure</p>
                 <ul>
                    {todos}
