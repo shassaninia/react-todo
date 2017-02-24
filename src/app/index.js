@@ -23,7 +23,7 @@ var TodoComponent = React.createClass({
        var todos = this.state.todos;
        todos = todos.map((item,index) => {
             return(
-               <TodoItem item={item} key={index}/>
+               <TodoItem item={item} key={index} onDelete={this.onDelete}/>
             )
        });
 
@@ -35,7 +35,23 @@ var TodoComponent = React.createClass({
                 </ul>
             </div>
         );
+    },
+
+    //Custom functions
+    onDelete:function(item)
+    {
+        //Filter out deleted item
+        var updatedTodos = this.state.todos.filter(function(val,index){
+            return item !== val;
+        });
+
+        //set todos to updated value
+        this.setState({
+            todos:updatedTodos
+        })
     }
+
+
 });
 
 //Create TodoItem component
@@ -47,9 +63,17 @@ var TodoItem = React.createClass({
                     <span className="item-name">
                         {this.props.item}
                     </span>
+                    <span onClick={this.handleDelete} className="item-delete"> x </span>
                 </div>
             </li>
         );
+    },
+
+    //Custom functions
+    handleDelete:function(){
+        //onDelete is a function from the parent that gets passed down
+        //as a property into the function defined on the item.
+        this.props.onDelete(this.props.item);
     }
 });
 
