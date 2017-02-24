@@ -9,13 +9,17 @@ var TodoComponent = React.createClass({
     render: function(){
         return (
             <div>
-            <h1>hi</h1>
-            <p>{this.props.msg}</p>
+            
+            <p>String property: {this.props.msg}</p>
+            <p><strong>Chess Name: </strong>{this.props.cheese.name}</p>
+            <p><strong>Smell Factor: </strong>{this.props.cheese.smellFactor}</p>
+            <p><strong>Price: </strong>{this.props.cheese.price}</p>
             </div>
         );
     }
 });
 
+var myCheese = {name:'Camembert',smellFactor:'Extreme pong',price:'3.50'};
 
 //Put component into html page
-ReactDOM.render(<TodoComponent msg="Hello"/>,document.getElementById('todo-wrapper'));
+ReactDOM.render(<TodoComponent msg="Hello" cheese={myCheese}/>,document.getElementById('todo-wrapper'));
