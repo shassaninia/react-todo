@@ -2,6 +2,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+// Module requires
+var TodoItem = require('./todoItem');
+
 //Create component react way
 var TodoComponent = React.createClass({
 
@@ -53,30 +56,6 @@ var TodoComponent = React.createClass({
 
 
 });
-
-//Create TodoItem component
-var TodoItem = React.createClass({
-    render: function(){
-        return (
-            <li>
-                <div className="todo-item">
-                    <span className="item-name">
-                        {this.props.item}
-                    </span>
-                    <span onClick={this.handleDelete} className="item-delete"> x </span>
-                </div>
-            </li>
-        );
-    },
-
-    //Custom functions
-    handleDelete:function(){
-        //onDelete is a function from the parent that gets passed down
-        //as a property into the function defined on the item.
-        this.props.onDelete(this.props.item);
-    }
-});
-
 
 
 //Put component into html page
