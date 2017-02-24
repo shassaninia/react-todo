@@ -9,6 +9,7 @@ import {Router, Route, browserHistory,Link} from 'react-router';
 var TodoItem = require('./todoItem');
 var AddItem = require('./addItem');
 var About = require('./about');
+var Contact = require('./contact');
 
 var App = React.createClass({
     render:function(){
@@ -16,6 +17,7 @@ var App = React.createClass({
             <Router history={browserHistory}>
                 <Route path={'/'} component={TodoComponent}></Route>
                 <Route path={'/about'} component={About}></Route>
+                <Route path={'/contact'} component={Contact}></Route>
             </Router>
         );
     }
@@ -48,6 +50,7 @@ var TodoComponent = React.createClass({
         return (
             <div id="todo-list">
                 <Link to={'/about'}>About</Link>
+                  <Link to={'/contact'}>Contact</Link>
                 <p>The busiest people have the most leisure</p>
                 <ul>
                    {todos}
