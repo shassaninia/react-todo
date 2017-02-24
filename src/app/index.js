@@ -1,7 +1,7 @@
 // Can use import instead of require
 var React = require('react');
 var ReactDOM = require('react-dom');
-
+require('./css/index.css');
 // Module requires
 var TodoItem = require('./todoItem');
 
